@@ -1,9 +1,19 @@
 import {useState} from 'react'
-import { StyleSheet,View, Text, TextInput, TouchableOpacity} from 'react-native';
+import { StyleSheet,View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
 
 
 const AddTodo = ({submitHandler}) => {
     const [text, setText]=useState('')
+
+    const submit = ()=>{
+      if(text.length >3) {
+        submitHandler({text: text, key: Math.random()})
+        setText('')
+       
+      } else {
+        Alert.alert('damn', 'its gotta be longer than three characters man', [{text: 'I hear you'}])
+      }
+    }
     
   return (
    <View style={styles.input}>
@@ -15,10 +25,7 @@ const AddTodo = ({submitHandler}) => {
         />
         <TouchableOpacity
         style={styles.button} 
-        onPress={()=>
-        {submitHandler({text: text, key: Math.random()})
-         setText('')
-        }}>
+        onPress={submit}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
        </View>

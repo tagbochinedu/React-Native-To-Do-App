@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import {useState} from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Touchable} from 'react-native';
+import { StyleSheet, View, FlatList, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import AddTodo from './Components/AddTodo';
 
 import Header from './Components/Header';
@@ -24,6 +24,7 @@ setTodo((prevtodo)=>(prevtodo.filter((todos)=>(todos.key!==key))))
 
   
   return (
+    <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}}>
     <View style={styles.container}>
         <Header/>
         <AddTodo submitHandler={submitHandler}/>
@@ -37,7 +38,7 @@ setTodo((prevtodo)=>(prevtodo.filter((todos)=>(todos.key!==key))))
             </View>
           </View>
       <StatusBar style="auto" />
-    </View>
+    </View></TouchableWithoutFeedback>
   );
 }
 
@@ -54,11 +55,3 @@ const styles = StyleSheet.create({
   },
 
 });
-
-
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/tagbochinedu/React-Native-To-Do-App.git
-git push -u origin main
