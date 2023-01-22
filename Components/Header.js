@@ -11,7 +11,7 @@ const Header = () => {
 }
 const styles = StyleSheet.create({
     header: {
-        marginBottom: 45,
+        
         height: 90,
         paddingTop:38,
         backgroundColor: 'coral',

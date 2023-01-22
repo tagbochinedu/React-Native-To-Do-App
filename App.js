@@ -27,9 +27,9 @@ setTodo((prevtodo)=>(prevtodo.filter((todos)=>(todos.key!==key))))
     <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}}>
     <View style={styles.container}>
         <Header/>
-        <AddTodo submitHandler={submitHandler}/>
-          <View tyle={styles.content}>
+          <View style={styles.content}>
           {/* To Do Form */}
+          <AddTodo submitHandler={submitHandler}/>
             <View style={styles.list}>
               <FlatList data={todo} renderItem={({item})=>(
               <Todo item={item} pressHandler={pressHandler}/>
@@ -38,20 +38,27 @@ setTodo((prevtodo)=>(prevtodo.filter((todos)=>(todos.key!==key))))
             </View>
           </View>
       <StatusBar style="auto" />
-    </View></TouchableWithoutFeedback>
+    </View>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
   container: { 
-    flex: 1,
     backgroundColor: 'white',
+    flex: 1,
   },
-  item: {
+  content: {
+    paddingTop: 45,
     paddingHorizontal: 20,
     fontWeight: 'bold',
     margin: 0,
     fontSize: 30,
+    flex: 1,
   },
+  list: {
+    flex: 1,
+    marginTop: 20,
+  }
 
 });
